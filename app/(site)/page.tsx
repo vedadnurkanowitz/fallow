@@ -26,19 +26,26 @@ export default async function HomePage() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <section className="noise min-h-[100svh] flex flex-col bg-espresso text-milk overflow-hidden relative">
+      <section className="min-h-[100svh] flex flex-col bg-espresso text-milk overflow-hidden relative">
 
-        {/* Ghost wordmark — decorative background type */}
+        {/* Background image */}
+        <Image
+          src="/images/hero-bg.png"
+          alt=""
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+
+        {/* Gradient overlay — dark left for text, enough cover on right for contrast */}
         <div
           aria-hidden="true"
-          className="pointer-events-none select-none absolute top-[-0.1em] left-[-0.03em] font-display font-bold text-milk/[0.04] leading-none whitespace-nowrap"
-          style={{ fontSize: "clamp(110px, 19vw, 240px)" }}
-        >
-          Fallow
-        </div>
+          className="absolute inset-0 bg-gradient-to-r from-espresso/90 via-espresso/70 to-espresso/55"
+        />
 
         {/* Main content — pushed to bottom */}
-        <div className="mt-auto max-w-7xl mx-auto w-full px-6 md:px-12 pb-14 md:pb-20 pt-36">
+        <div className="relative z-10 mt-auto max-w-7xl mx-auto w-full px-6 md:px-12 pb-14 md:pb-20 pt-36">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-y-10 md:gap-x-8 items-end">
 
             {/* Left — headline + CTAs */}
@@ -70,7 +77,7 @@ export default async function HomePage() {
 
             {/* Right — tagline + hours */}
             <div className="md:col-span-5 md:text-right md:pb-1 flex flex-col md:items-end gap-5">
-              <p className="text-small text-milk/40 max-w-[22ch] md:text-right">
+              <p className="text-small text-milk/90 max-w-[22ch] md:text-right">
                 Seasonal espresso, filter brews,<br />
                 and a space that feels like yours.
               </p>
@@ -84,7 +91,7 @@ export default async function HomePage() {
         </div>
 
         {/* Bottom thin rule */}
-        <div className="w-full h-px bg-crema/10" />
+        <div className="relative z-10 w-full h-px bg-crema/10" />
       </section>
 
       {/* ── Seasonal feature ─────────────────────────────────────────────── */}
