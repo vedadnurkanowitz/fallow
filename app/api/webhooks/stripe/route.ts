@@ -1,10 +1,8 @@
 import { type NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 import { getStripe } from "@/lib/stripe";
-import { getSupabaseAdmin } from "@/lib/supabase/server";
 import { sendOrderConfirmation } from "@/lib/resend";
 
-// Next.js must receive the raw body to verify Stripe's signature.
 export const dynamic = "force-dynamic";
 
 export async function POST(req: NextRequest) {
@@ -51,29 +49,6 @@ export async function POST(req: NextRequest) {
   const pickupNote = metadata.pickup_note ?? "Ready in approx. 15 minutes";
   const totalPence = amount_total ?? 0;
 
-  // ── Save to Supabase ─────────────────────────────────────────────────────
-  try {
-    const supabase = getSupabaseAdmin();
-    const { error } = await supabase.from("orders").upsert(
-      {
-        stripe_session_id: sessionId,
-        items,
-        total_pence: totalPence,
-        customer_email,
-        pickup_note: pickupNote,
-        status: "confirmed",
-      },
-      { onConflict: "stripe_session_id" } // idempotent — safe to retry
-    );
-
-    if (error) {
-      console.error("[stripe-webhook] supabase error:", error);
-    }
-  } catch (err) {
-    console.error("[stripe-webhook] supabase client error:", err);
-  }
-
-  // ── Send confirmation email ──────────────────────────────────────────────
   try {
     await sendOrderConfirmation({
       to: customer_email,
@@ -87,7 +62,6 @@ export async function POST(req: NextRequest) {
       stripeSessionId: sessionId,
     });
   } catch (err) {
-    // Don't fail the webhook if email fails — order is already saved.
     console.error("[stripe-webhook] resend error:", err);
   }
 
