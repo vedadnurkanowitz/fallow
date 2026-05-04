@@ -33,20 +33,20 @@ export default async function HomePage() {
           alt=""
           fill
           priority
-          className="object-cover object-center"
+          className="object-cover object-[70%_center] brightness-110"
           sizes="100vw"
         />
 
         {/* Gradient overlay — dark left for text, enough cover on right for contrast */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-r from-espresso/90 via-espresso/70 to-espresso/55"
+          className="absolute inset-0 bg-gradient-to-r from-espresso/55 via-espresso/20 to-transparent"
         />
 
         {/* Ghost wordmark */}
         <div
           aria-hidden="true"
-          className="pointer-events-none select-none absolute top-[-0.1em] left-[-0.03em] z-10 font-display font-bold text-milk/[0.03] leading-none whitespace-nowrap"
+          className="pointer-events-none select-none absolute top-[-0.1em] left-[-0.03em] z-10 font-display font-bold text-milk/[0.04] leading-none whitespace-nowrap"
           style={{ fontSize: "clamp(110px, 19vw, 240px)" }}
         >
           Fallow

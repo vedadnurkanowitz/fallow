@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { ShopInfo } from "@/types";
 
 interface FooterProps {
@@ -23,11 +24,8 @@ export default function Footer({ shopInfo }: FooterProps) {
 
           {/* Brand / strapline */}
           <div className="col-span-2 md:col-span-4">
-            <Link
-              href="/"
-              className="font-display font-semibold text-[22px] text-milk hover:text-crema transition-colors block mb-3"
-            >
-              Fallow
+            <Link href="/" className="inline-block mb-3 hover:opacity-75 transition-opacity" aria-label="Fallow Coffee — home">
+              <Image src="/images/fallow-logo-light.png" alt="Fallow" width={144} height={37} />
             </Link>
             <p className="text-small text-milk/40 max-w-[28ch] leading-relaxed">
               Neighbourhood coffee, roasted with intention. Seven days a week.

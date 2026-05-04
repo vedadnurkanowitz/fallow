@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import HoursStatus from "@/components/ui/HoursStatus";
@@ -26,11 +27,8 @@ export default function Nav({ hours }: NavProps) {
       <nav className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-14">
 
         {/* Logo */}
-        <Link
-          href="/"
-          className="font-display font-semibold text-[19px] text-espresso hover:text-roast transition-colors shrink-0 tracking-tight"
-        >
-          Fallow
+        <Link href="/" className="shrink-0 hover:opacity-80 transition-opacity" aria-label="Fallow Coffee — home">
+          <Image src="/images/fallow-logo.png" alt="Fallow" width={133} height={34} priority />
         </Link>
 
         {/* Desktop nav */}
