@@ -39,7 +39,7 @@ export default function MenuCategoryNav({ categories }: MenuCategoryNavProps) {
   return (
     <div
       ref={navRef}
-      className="sticky top-16 z-40 bg-milk/95 backdrop-blur-sm border-b border-crema -mx-4 sm:-mx-6 px-4 sm:px-6"
+      className="sticky top-14 z-40 bg-milk/95 backdrop-blur-sm border-b border-crema/60 -mx-6 md:-mx-12 px-6 md:px-12"
     >
       <div className="flex gap-1 overflow-x-auto scrollbar-none py-1" role="navigation" aria-label="Menu categories">
         {categories.map((cat) => {

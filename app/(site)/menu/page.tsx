@@ -18,13 +18,16 @@ export default async function MenuPage() {
   ]);
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10">
-      <div className="mb-8">
-        <p className="text-label text-stone uppercase tracking-widest mb-1">
-          What we serve
-        </p>
-        <h1 className="text-h1 text-espresso">Menu</h1>
-        <p className="text-body text-stone mt-2">
+    <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-16">
+      <div className="mb-10">
+        <div className="flex items-center gap-3 mb-5">
+          <div className="h-px w-8 bg-roast/40" />
+          <p className="font-accent italic text-roast/60 text-[11px] tracking-[0.2em] uppercase">
+            What we serve
+          </p>
+        </div>
+        <h1 className="text-display text-espresso mb-3">Menu</h1>
+        <p className="text-body text-stone max-w-[48ch]">
           Seasonal and always quality-first. Updated whenever something changes.
         </p>
       </div>

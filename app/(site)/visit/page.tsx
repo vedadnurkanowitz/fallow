@@ -15,12 +15,15 @@ export default async function VisitPage() {
   const shopInfo = await getShopInfo();
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12">
+    <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-16">
       <div className="mb-10">
-        <p className="text-label text-stone uppercase tracking-widest mb-1">
-          Come in
-        </p>
-        <h1 className="text-h1 text-espresso mb-2">Visit us</h1>
+        <div className="flex items-center gap-3 mb-5">
+          <div className="h-px w-8 bg-roast/40" />
+          <p className="font-accent italic text-roast/60 text-[11px] tracking-[0.2em] uppercase">
+            Come in
+          </p>
+        </div>
+        <h1 className="text-display text-espresso mb-4">Visit us</h1>
         {shopInfo && (
           <HoursStatus hours={shopInfo.hours} className="mt-3" />
         )}
