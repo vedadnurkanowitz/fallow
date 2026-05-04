@@ -27,7 +27,6 @@ export default async function HomePage() {
     <>
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="min-h-[100svh] flex flex-col bg-espresso text-milk overflow-hidden relative">
-
         {/* Background image */}
         <Image
           src="/images/hero-bg.png"
@@ -44,18 +43,30 @@ export default async function HomePage() {
           className="absolute inset-0 bg-gradient-to-r from-espresso/90 via-espresso/70 to-espresso/55"
         />
 
+        {/* Ghost wordmark */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none select-none absolute top-[-0.1em] left-[-0.03em] z-10 font-display font-bold text-milk/[0.03] leading-none whitespace-nowrap"
+          style={{ fontSize: "clamp(110px, 19vw, 240px)" }}
+        >
+          Fallow
+        </div>
+
         {/* Main content — pushed to bottom */}
         <div className="relative z-10 mt-auto max-w-7xl mx-auto w-full px-6 md:px-12 pb-14 md:pb-20 pt-36">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-y-10 md:gap-x-8 items-end">
-
             {/* Left — headline + CTAs */}
             <div className="md:col-span-7">
               <p className="font-accent italic text-crema/50 text-[11px] tracking-[0.22em] uppercase mb-7">
                 Neighbourhood coffee
               </p>
               <h1 className="text-display-hero text-milk mb-10">
-                Every cup,<br />
-                <em className="text-crema not-italic font-accent italic font-normal">crafted</em><br />
+                Every cup,
+                <br />
+                <em className="text-crema not-italic font-accent italic font-normal">
+                  crafted
+                </em>
+                <br />
                 with intention.
               </h1>
 
@@ -78,7 +89,8 @@ export default async function HomePage() {
             {/* Right — tagline + hours */}
             <div className="md:col-span-5 md:text-right md:pb-1 flex flex-col md:items-end gap-5">
               <p className="text-small text-milk/90 max-w-[22ch] md:text-right">
-                Seasonal espresso, filter brews,<br />
+                Seasonal espresso, filter brews,
+                <br />
                 and a space that feels like yours.
               </p>
               {shopInfo && (
@@ -99,7 +111,6 @@ export default async function HomePage() {
         <section className="bg-milk border-b border-crema/60">
           <div className="max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-28">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-center">
-
               {/* Text side */}
               <div className="md:col-span-6 lg:col-span-5">
                 <div className="flex items-center gap-3 mb-8">
@@ -164,7 +175,6 @@ export default async function HomePage() {
       {featured.length > 0 && (
         <section className="bg-espresso noise overflow-hidden">
           <div className="max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-28">
-
             {/* Section header */}
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
               <div>
@@ -215,7 +225,6 @@ export default async function HomePage() {
                 </div>
               ))}
             </div>
-
           </div>
         </section>
       )}
@@ -224,7 +233,6 @@ export default async function HomePage() {
       <section className="bg-milk border-t border-crema/60">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-28">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-
             {/* Decorative large quote mark */}
             <div className="md:col-span-1 hidden md:flex items-start pt-2">
               <span
@@ -246,14 +254,18 @@ export default async function HomePage() {
               </div>
               <blockquote>
                 <p className="text-display text-espresso mb-8 leading-[1.08]">
-                  The kind of place<br />
-                  <em className="font-accent italic font-normal text-stone">regulars defend.</em>
+                  The kind of place
+                  <br />
+                  <em className="font-accent italic font-normal text-stone">
+                    regulars defend.
+                  </em>
                 </p>
               </blockquote>
               <p className="text-body text-stone max-w-[52ch] mb-8">
-                Fallow is an independent coffee shop rooted in the neighbourhood.
-                The owner&apos;s personality is the brand — quality-first,
-                community-anchored, and deeply proud of every cup.
+                Fallow is an independent coffee shop rooted in the
+                neighbourhood. The owner&apos;s personality is the brand —
+                quality-first, community-anchored, and deeply proud of every
+                cup.
               </p>
               <a
                 href="/about"
@@ -276,7 +288,6 @@ export default async function HomePage() {
         <section className="bg-espresso border-t border-crema/10 noise overflow-hidden">
           <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-20">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
-
               {/* Text */}
               <div className="md:col-span-4">
                 <div className="flex items-center gap-3 mb-6">
@@ -300,7 +311,6 @@ export default async function HomePage() {
               <div className="md:col-span-8">
                 <MapEmbed src={shopInfo.googleMapsUrl} compact />
               </div>
-
             </div>
           </div>
         </section>
